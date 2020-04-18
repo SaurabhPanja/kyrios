@@ -31,7 +31,7 @@ class ProductModelTest(TestCase):
         
         self.assertEqual(product.price, 0)
 
-class GetAllProductTest(TestCase):
+class RestApiProductTest(TestCase):
     def setUp(self):
         Product.objects.create(
             title="Calculus 3",
@@ -56,5 +56,13 @@ class GetAllProductTest(TestCase):
         self.assertEqual(response.data['results'], serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_single_product(self):
+        
+        product_1 = Product.objects.first()
+        response_1 = client.get('/products/{}/'.format(product_1.id))
+
+        serializer_1 = ProductSerializer(product_1)
 
 
+        self.assertEqual(response_1.data, serializer_1.data)
+        self.assertEqual(response_1.status_code, status.HTTP_200_OK)
