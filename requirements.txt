@@ -8,7 +8,6 @@ asgiref==3.2.7
 autopep8==1.5.1
 Django==3.0.5
 djangorestframework==3.11.0
-pkg-resources==0.0.0
 psycopg2==2.8.5
 pycodestyle==2.5.0
 python-dotenv==0.13.0
