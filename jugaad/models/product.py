@@ -3,9 +3,9 @@ from django.core.validators import MinValueValidator
 
 class Product(models.Model):
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=100, blank=False, null=False)
     description = models.TextField()
-    price = models.FloatField(validators=[MinValueValidator(0.0)])
+    price = models.FloatField(validators=[MinValueValidator(0.0)], blank=False, null=False)
 
     # education = 
     # institution =
