@@ -10,9 +10,19 @@ class ProductTest(TestCase):
             description="""Hello everyone this is a book on calculus """,
             price= 1000
         )
+        Product.objects.create(
+            title= "Elements of Mechanical Engineering",
+            price= -10
+        )
+
+    #testing model        
     def test_product_created(self):
-        product_1 = Product.objects.get(title="Calculus 3")
+        product = Product.objects.get(title="Calculus 3")
 
-        self.assertEqual(product_1.price, 1000)
-
+        self.assertEqual(product.price, 1000)
+    
+    def test_negative_price(self):
+        product = Product.objects.get(title="Elements of Mechanical Engineering")
         
+        self.assertEqual(product.price, 0)
+
