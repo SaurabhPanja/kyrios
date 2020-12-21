@@ -18,4 +18,4 @@ class InstitutionViewSet(viewsets.ModelViewSet):
 
     queryset = Institution.objects.get_queryset().order_by('id')
     serializer_class = InstitutionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
